@@ -1,4 +1,5 @@
 import { Button } from "@mui/material";
+import { useStoreActions } from "easy-peasy";
 import { useState } from "react";
 import {
   MdOutlineFavoriteBorder,
@@ -9,7 +10,6 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link as RouterLink } from "react-router-dom";
 import PlaylistCard from "../PlaylistCard";
-import PlaylistForm from "../PlaylistFrom";
 import { CustomLeftArrow, CustomRightArrow } from "./CarouselBtn";
 import styles from "./Overview.module.scss";
 useState;
@@ -73,15 +73,8 @@ const Overview = ({ type, playlists }) => {
     );
   }
 
-  const [open, setOpen] = useState(false);
+  const { setOpen } = useStoreActions((actions) => actions.formToggle);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   return (
     <div className={styles.overview}>
       <div className={styles.section_header}>
@@ -110,7 +103,7 @@ const Overview = ({ type, playlists }) => {
                 <Button
                   variant="outlined"
                   sx={{ marginTop: "10px" }}
-                  onClick={handleClickOpen}
+                  onClick={() => setOpen()}
                 >
                   Add Playlist
                 </Button>
@@ -119,7 +112,6 @@ const Overview = ({ type, playlists }) => {
           )}
         </Carousel>
       </div>
-      <PlaylistForm open={open} handleClose={handleClose} />
     </div>
   );
 };

@@ -8,7 +8,10 @@ import TextField from "@mui/material/TextField";
 import { useStoreActions, useStoreState } from "easy-peasy";
 import { useEffect, useState } from "react";
 
-const PlaylistForm = ({ open, handleClose }) => {
+const PlaylistForm = () => {
+  const { open } = useStoreState((state) => state.formToggle);
+  const { setClose } = useStoreActions((actions) => actions.formToggle);
+
   const [state, setState] = useState("");
 
   const { getPlaylist, setError } = useStoreActions(
@@ -38,7 +41,7 @@ const PlaylistForm = ({ open, handleClose }) => {
   const handleCancel = () => {
     setError(null);
     setState("");
-    handleClose();
+    setClose();
   };
 
   const handleOnChange = (e) => {
@@ -47,12 +50,12 @@ const PlaylistForm = ({ open, handleClose }) => {
 
   useEffect(() => {
     if (!error) {
-      handleClose();
+      setClose();
     }
   }, [playlists]);
 
   return (
-    <Dialog open={open} onClose={handleCancel} sx={{ zIndex: "99999" }}>
+    <Dialog open={open} onClose={() => setClose()} sx={{ zIndex: "99999" }}>
       <DialogTitle>Add Playlist</DialogTitle>
       <DialogContent>
         <DialogContentText>
@@ -73,7 +76,11 @@ const PlaylistForm = ({ open, handleClose }) => {
         {error && <div style={{ color: "#d32f2f" }}>{error}</div>}
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} variant={"contained"} color={"error"}>
+        <Button
+          onClick={() => setClose()}
+          variant={"contained"}
+          color={"error"}
+        >
           Cancel
         </Button>
         <Button onClick={handleSubmit} variant={"contained"}>

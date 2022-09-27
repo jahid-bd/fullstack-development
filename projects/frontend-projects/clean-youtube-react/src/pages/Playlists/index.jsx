@@ -1,10 +1,13 @@
-import { Grid } from "@mui/material";
-import { useStoreState } from "easy-peasy";
+import { Button, Grid } from "@mui/material";
+import { useStoreActions, useStoreState } from "easy-peasy";
 import PlaylistCard from "../../components/PlaylistCard";
 
 const Playlists = () => {
   const { playlists } = useStoreState((state) => state.playlists);
   const playlistArray = Object.values(playlists);
+
+  const { setOpen } = useStoreActions((actions) => actions.formToggle);
+
   return (
     <div>
       <h1 style={{ margin: "30px 0" }}>All Playlists</h1>
@@ -25,7 +28,16 @@ const Playlists = () => {
               </Grid>
             ))
           ) : (
-            <h3>No Playlist</h3>
+            <div>
+              <h3>No Playlist</h3>
+              <Button
+                variant="outlined"
+                sx={{ marginTop: "10px" }}
+                onClick={() => setOpen()}
+              >
+                Add Playlist
+              </Button>
+            </div>
           )}
         </Grid>
       </div>

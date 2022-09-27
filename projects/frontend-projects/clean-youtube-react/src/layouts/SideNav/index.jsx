@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useStoreActions } from "easy-peasy";
 import {
   AiOutlinePlus,
   AiOutlineQuestionCircle,
@@ -10,15 +10,7 @@ import PlaylistForm from "../../components/PlaylistFrom";
 import styles from "./SideNav.module.scss";
 
 const SideNav = ({ handleMenuBarTrig }) => {
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const { setOpen } = useStoreActions((actions) => actions.formToggle);
 
   return (
     <div className={styles.sidenav}>
@@ -36,12 +28,11 @@ const SideNav = ({ handleMenuBarTrig }) => {
         <a
           className={styles.add_icon}
           title={"Add Playlist"}
-          onClick={handleClickOpen}
+          onClick={() => setOpen()}
         >
           <i>
             <AiOutlinePlus />
           </i>
-          {/* <span>Add Playlist</span> */}
         </a>
       </div>
       <div className={styles.bottom_content}>
@@ -49,10 +40,9 @@ const SideNav = ({ handleMenuBarTrig }) => {
           <i>
             <AiOutlineQuestionCircle />
           </i>
-          {/* <span>About</span> */}
         </div>
       </div>
-      <PlaylistForm open={open} handleClose={handleClose} />
+      <PlaylistForm />
     </div>
   );
 };
