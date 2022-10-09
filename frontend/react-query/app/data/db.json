@@ -1,0 +1,59 @@
+{
+  "todos": [
+    {
+      "userId": 1,
+      "id": 1,
+      "title": "delectus aut autem",
+      "completed": true
+    },
+    {
+      "userId": 1,
+      "id": 2,
+      "title": "quis ut nam facilis et officia qui",
+      "completed": false
+    },
+    {
+      "6": "",
+      "userId": 1,
+      "id": 6,
+      "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+      "completed": false
+    },
+    {
+      "userId": "u0ezriuO6",
+      "title": "A new work done",
+      "completed": true,
+      "id": 10
+    },
+    {
+      "userId": "Crl_37VK5",
+      "title": "I am a hero",
+      "completed": true,
+      "id": 11
+    },
+    {
+      "userId": "nCFY7i-TD",
+      "title": "You are a zero",
+      "completed": false,
+      "id": 12
+    },
+    {
+      "userId": "K84eqSfpZ",
+      "title": "Nothing todo",
+      "completed": true,
+      "id": 13
+    },
+    {
+      "userId": "HJHB1g3ad",
+      "title": "Thats All!",
+      "completed": false,
+      "id": 14
+    },
+    {
+      "userId": "LCmAov2DU",
+      "title": "Go Ahead.",
+      "completed": false,
+      "id": 15
+    }
+  ]
+}

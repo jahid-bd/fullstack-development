@@ -1,5 +1,5 @@
-import { action, createStore, thunk } from "easy-peasy";
 import axios from "axios";
+import { action, createStore, thunk } from "easy-peasy";
 
 const todosModal = {
   todo: [],

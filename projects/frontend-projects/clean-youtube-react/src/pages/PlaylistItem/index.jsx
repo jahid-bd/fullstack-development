@@ -10,7 +10,6 @@ import styles from "./PLaylistItem.module.scss";
 const PlaylistItem = () => {
   const { playlists } = useStoreState((state) => state.playlists);
   const { playlistId } = useParams();
-
   const playlist = playlists[playlistId];
 
   if (!playlist) return;
@@ -23,7 +22,6 @@ const PlaylistItem = () => {
     publishedAt,
     itemCount,
     playlistVideos,
-    chanelId,
     channelTitle,
   } = playlist;
 

@@ -5,6 +5,7 @@ const Home = () => {
   const { playlists } = useStoreState((state) => state.playlists);
   const { favorites } = useStoreState((state) => state.favorites);
   const { recents } = useStoreState((state) => state.recents);
+  console.log(playlists);
 
   const playlistArray = Object.values(playlists);
 

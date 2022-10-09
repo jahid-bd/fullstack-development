@@ -62,7 +62,6 @@ const VideoItem = () => {
   };
 
   const handleOnEnd = () => {
-    console.log("Ended");
     const index = playlistVideos.findIndex((item) => item.id === videoId);
     if (index - 1 < playlistVideos.length) {
       const nextVideoId = playlistVideos[index + 1].id;
