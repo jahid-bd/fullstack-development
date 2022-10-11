@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variants",
+  "info": {
+    "singularName": "variant",
+    "pluralName": "variants",
+    "displayName": "Variant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bookId": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::book.book",
+      "inversedBy": "variants"
+    },
+    "formate": {
+      "type": "enumeration",
+      "enum": [
+        "PDF",
+        "AUDIO",
+        "HAND_COPY"
+      ]
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "languages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::language.language",
+      "inversedBy": "variants"
+    }
+  }
+}
