@@ -41,7 +41,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::publisher.publisher",
-      "inversedBy": "authors"
+      "mappedBy": "authors"
     }
   }
 }
